@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="task" label="Manufacturing Incident" max_length="40" name="x_pisn_mnfctops_incident" type="collection"/>
+</database>
