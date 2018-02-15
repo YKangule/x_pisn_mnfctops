@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">c8b48c4ddbbe83005c025a6adc96196a</sp_column>
+        <sp_widget display_value="Manufacturing - SC Catalog Item">b86d4cebdb0c9b0085895845dc961922</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>arthur.oliveira</sys_created_by>
+        <sys_created_on>2017-11-30 22:00:57</sys_created_on>
+        <sys_id>e0b4cc4ddbbe83005c025a6adc9619a8</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+        <sys_update_name>sp_instance_e0b4cc4ddbbe83005c025a6adc9619a8</sys_update_name>
+        <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+        <sys_updated_on>2018-02-08 20:23:34</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"show_add_cart_button": {
+		"value": "",
+		"displayValue": ""
+	},
+	"url": {
+		"value": "",
+		"displayValue": ""
+	},
+	"page": {
+		"value": "0ea1d7efdbef36008ec179feaf9619eb",
+		"displayValue": "tag_detail"
+	},
+	"table": {
+		"value": "",
+		"displayValue": ""
+	},
+	"auto_redirect": {
+		"value": "true",
+		"displayValue": "true"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=e0b4cc4ddbbe83005c025a6adc9619a8"/>
+</record_update>

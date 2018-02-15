@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="x_pisn_mnfctops_manufacturing_issue" label="Manufacturing Card" max_length="40" name="x_pisn_mnfctops_manufacturing_tag" sizeclass="36" type="collection">
+        <element label="Failure" max_length="32" name="failure" reference="cmdb_ci_appl_dot_net" type="reference"/>
+    </element>
+</database>

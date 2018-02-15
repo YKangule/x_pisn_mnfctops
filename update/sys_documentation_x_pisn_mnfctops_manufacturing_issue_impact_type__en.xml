@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="" label="Manufacturing Issue Impact Type" language="en" table="x_pisn_mnfctops_manufacturing_issue_impact_type">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element/>
+            <help/>
+            <hint/>
+            <label>Manufacturing Issue Impact Type</label>
+            <language>en</language>
+            <name>x_pisn_mnfctops_manufacturing_issue_impact_type</name>
+            <plural>Manufacturing Issue Impact Types</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>joe.wilmoth@snc</sys_created_by>
+            <sys_created_on>2017-12-04 23:47:03</sys_created_on>
+            <sys_id>6d538552dbb647005c025a6adc9619f2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Manufacturing Issue Impact Type</sys_name>
+            <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+            <sys_update_name>sys_documentation_x_pisn_mnfctops_manufacturing_issue_impact_type__en</sys_update_name>
+            <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+            <sys_updated_on>2017-12-04 23:47:03</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

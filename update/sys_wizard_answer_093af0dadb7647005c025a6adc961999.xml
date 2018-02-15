@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_wizard_answer">
+    <sys_wizard_answer action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <answer>Failure Code</answer>
+        <button_label/>
+        <dependent_value/>
+        <element/>
+        <name>Failure Code</name>
+        <next_question/>
+        <order>100</order>
+        <payload_name/>
+        <question display_value="Application File" name="Application File">f31fa472dbd203005c025a6adc9619f2</question>
+        <roles/>
+        <script/>
+        <sys_class_name>sys_wizard_answer</sys_class_name>
+        <sys_created_by>joe.wilmoth@snc</sys_created_by>
+        <sys_created_on>2017-12-04 23:07:08</sys_created_on>
+        <sys_id>093af0dadb7647005c025a6adc961999</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Failure Code</sys_name>
+        <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+        <sys_update_name>sys_wizard_answer_093af0dadb7647005c025a6adc961999</sys_update_name>
+        <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+        <sys_updated_on>2017-12-04 23:07:08</sys_updated_on>
+        <table/>
+        <target_url>x_pisn_mnfctops_failure_code.do</target_url>
+        <type>1</type>
+    </sys_wizard_answer>
+</record_update>

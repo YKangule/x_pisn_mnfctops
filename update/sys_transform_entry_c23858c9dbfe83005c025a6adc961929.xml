@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_transform_entry">
+    <sys_transform_entry action="INSERT_OR_UPDATE">
+        <choice_action>create</choice_action>
+        <coalesce>false</coalesce>
+        <coalesce_case_sensitive>false</coalesce_case_sensitive>
+        <coalesce_empty_fields>false</coalesce_empty_fields>
+        <date_format>yyyy-MM-dd HH:mm:ss</date_format>
+        <map display_value="Tag Transform Map">de1854c9dbfe83005c025a6adc961911</map>
+        <reference_value_field/>
+        <source_field>u_work_notes</source_field>
+        <source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+        <source_table>x_pisn_mnfctops_tag_import_set</source_table>
+        <sys_class_name>sys_transform_entry</sys_class_name>
+        <sys_created_by>joe.wilmoth@snc</sys_created_by>
+        <sys_created_on>2017-11-30 23:26:15</sys_created_on>
+        <sys_id>c23858c9dbfe83005c025a6adc961929</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>u_work_notes</sys_name>
+        <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+        <sys_update_name>sys_transform_entry_c23858c9dbfe83005c025a6adc961929</sys_update_name>
+        <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+        <sys_updated_on>2017-11-30 23:26:15</sys_updated_on>
+        <target_field>work_notes</target_field>
+        <target_table>x_pisn_mnfctops_manufacturing_tag</target_table>
+        <use_source_script>false</use_source_script>
+    </sys_transform_entry>
+</record_update>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="u_choice_1" table="x_pisn_mnfctops_manufacturing_issue" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>u_choice_1</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Yes</label>
+            <language>en</language>
+            <name>x_pisn_mnfctops_manufacturing_issue</name>
+            <sequence>0</sequence>
+            <sys_created_by>joe.wilmoth@snc</sys_created_by>
+            <sys_created_on>2017-11-30 19:54:46</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>00d7abb0dbbacb0085895845dc961971</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+            <sys_updated_on>2017-11-30 19:54:46</sys_updated_on>
+            <value>yes</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>u_choice_1</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>No</label>
+            <language>en</language>
+            <name>x_pisn_mnfctops_manufacturing_issue</name>
+            <sequence>1</sequence>
+            <sys_created_by>joe.wilmoth@snc</sys_created_by>
+            <sys_created_on>2017-11-30 19:54:46</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>40d7abb0dbbacb0085895845dc961973</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+            <sys_updated_on>2017-11-30 19:54:46</sys_updated_on>
+            <value>no</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>u_choice_1</element>
+            <name>x_pisn_mnfctops_manufacturing_issue</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>joe.wilmoth@snc</sys_created_by>
+            <sys_created_on>2017-11-30 19:54:46</sys_created_on>
+            <sys_id>0cd7abb0dbbacb0085895845dc961972</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>u_choice_1</sys_name>
+            <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+            <sys_update_name>sys_choice_x_pisn_mnfctops_manufacturing_issue_u_choice_1</sys_update_name>
+            <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+            <sys_updated_on>2017-11-30 19:54:46</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

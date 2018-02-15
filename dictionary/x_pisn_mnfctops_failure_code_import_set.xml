@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="sys_import_set_row" label="Failure Codes Data Source" max_length="40" name="x_pisn_mnfctops_failure_code_import_set" type="collection">
+        <element attributes="import_attribute_name=Application,edge_encryption_enabled=true" label="Application" max_length="40" name="u_application" type="string"/>
+        <element attributes="import_attribute_name=Class,edge_encryption_enabled=true" label="Class" max_length="40" name="u_class" type="string"/>
+        <element attributes="import_attribute_name=Created" label="Created" max_length="40" name="u_created" type="glide_date_time"/>
+        <element attributes="import_attribute_name=Created by,edge_encryption_enabled=true" label="Created by" max_length="40" name="u_created_by" type="string"/>
+        <element attributes="import_attribute_name=Customer update (No Longer Used),edge_encryption_enabled=true" label="Customer update (No Longer Used)" max_length="40" name="u_customer_upd_o_longer_used_" type="string"/>
+        <element attributes="import_attribute_name=Display name,edge_encryption_enabled=true" label="Display name" max_length="49" name="u_display_name" type="string"/>
+        <element attributes="import_attribute_name=ID,edge_encryption_enabled=true" label="ID" max_length="40" name="u_id" type="string"/>
+        <element attributes="import_attribute_name=Label,edge_encryption_enabled=true" label="Label" max_length="49" name="u_label" type="string"/>
+        <element attributes="import_attribute_name=Package,edge_encryption_enabled=true" label="Package" max_length="40" name="u_package" type="string"/>
+        <element attributes="import_attribute_name=Parent,edge_encryption_enabled=true" label="Parent" max_length="40" name="u_parent" type="string"/>
+        <element attributes="import_attribute_name=Protection policy,edge_encryption_enabled=true" label="Protection policy" max_length="40" name="u_protection_policy" type="string"/>
+        <element attributes="import_attribute_name=Replace on upgrade (No Longer Used),edge_encryption_enabled=true" label="Replace on upgrade (No Longer Used)" max_length="40" name="u_replace_on_u_o_longer_used_" type="string"/>
+        <element attributes="import_attribute_name=Sys ID,edge_encryption_enabled=true" label="Sys ID" max_length="40" name="u_sys_id" type="string"/>
+        <element attributes="import_attribute_name=Tags,edge_encryption_enabled=true" label="Tags" max_length="40" name="u_tags" type="string"/>
+        <element attributes="import_attribute_name=Updated" label="Updated" max_length="40" name="u_updated" type="glide_date_time"/>
+        <element attributes="import_attribute_name=Updated by,edge_encryption_enabled=true" label="Updated by" max_length="40" name="u_updated_by" type="string"/>
+        <element attributes="import_attribute_name=Updates" label="Updates" max_length="40" name="u_updates" type="integer"/>
+        <element attributes="import_attribute_name=Update name,edge_encryption_enabled=true" label="Update name" max_length="58" name="u_update_name" type="string"/>
+    </element>
+</database>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_related sys_domain="global" table="x_pisn_mnfctops_manufacturing_tag" version="2" view="">
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Manufacturing Card - Default view" name="x_pisn_mnfctops_manufacturing_tag" related_list="NULL" sys_domain="global" view="Default view">8db6adcbdbc74b0085895845dc961918</list_id>
+            <order_by/>
+            <position>0</position>
+            <related_list>REL:3db2ad4bdbc74b0085895845dc961902</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>joe.wilmoth@snc</sys_created_by>
+            <sys_created_on>2017-12-19 20:32:42</sys_created_on>
+            <sys_id>45b6adcbdbc74b0085895845dc961919</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+            <sys_updated_on>2017-12-19 20:32:42</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list action="INSERT_OR_UPDATE">
+            <calculated_name>Manufacturing Card - Default view</calculated_name>
+            <filter/>
+            <name>x_pisn_mnfctops_manufacturing_tag</name>
+            <order_by/>
+            <position/>
+            <related_list/>
+            <sys_class_name>sys_ui_related_list</sys_class_name>
+            <sys_created_by>joe.wilmoth@snc</sys_created_by>
+            <sys_created_on>2017-12-19 20:32:42</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8db6adcbdbc74b0085895845dc961918</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Manufacturing Tag - Default view</sys_name>
+            <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+            <sys_update_name>sys_ui_related_x_pisn_mnfctops_manufacturing_tag_null</sys_update_name>
+            <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+            <sys_updated_on>2017-12-19 20:32:42</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_related_list>
+    </sys_ui_related>
+</record_update>

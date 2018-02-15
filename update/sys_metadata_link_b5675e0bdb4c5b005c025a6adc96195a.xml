@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>update</directory>
+        <documentkey>e4920152dbb647005c025a6adc96196e</documentkey>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="b56e2bb4dbbacb0085895845dc961915" table="x_pisn_mnfctops_manufacturing_tag">
+    <x_pisn_mnfctops_manufacturing_tag action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <activity_due/>
+        <additional_assignee_list/>
+        <approval>not requested</approval>
+        <approval_history/>
+        <approval_set/>
+        <assigned_to display_value="Floris van den Boom">f16e2bb4dbbacb0085895845dc961913</assigned_to>
+        <assignment_group/>
+        <business_duration>1970-01-01 00:00:00</business_duration>
+        <business_service display_value="Bottling">ce6e2bb4dbbacb0085895845dc961919</business_service>
+        <calendar_duration>1970-01-01 00:00:00</calendar_duration>
+        <caller_id display_value="Aileen Mottern">71826bf03710200044e0bfc8bcbe5d3b</caller_id>
+        <close_notes/>
+        <closed_at/>
+        <closed_by/>
+        <cmdb_ci display_value="PS-WC-BottlingRB">70228816db6b7200ca7ff72eaf961903</cmdb_ci>
+        <comments/>
+        <comments_and_work_notes/>
+        <company display_value="ACME Italy">187d13f03710200044e0bfc8bcbe5df2</company>
+        <contact_type/>
+        <correlation_display/>
+        <correlation_id/>
+        <delivery_plan/>
+        <delivery_task/>
+        <description>Loose tile in the bottling area</description>
+        <due_date/>
+        <escalation>0</escalation>
+        <expected_start/>
+        <failure display_value="Broken / damaged parts/visual control">229cbc1edb7647005c025a6adc96191e</failure>
+        <follow_up/>
+        <group_list/>
+        <impact>3</impact>
+        <knowledge>false</knowledge>
+        <location/>
+        <made_sla>true</made_sla>
+        <number>TAG0001043</number>
+        <opened_at>2017-07-06 11:17:30</opened_at>
+        <opened_by display_value="">joe.wilmoth@snc</opened_by>
+        <order/>
+        <parent/>
+        <priority>8</priority>
+        <reassignment_count>0</reassignment_count>
+        <rejection_goto/>
+        <short_description/>
+        <skills/>
+        <sla_due/>
+        <state>10</state>
+        <sys_class_name>x_pisn_mnfctops_manufacturing_tag</sys_class_name>
+        <sys_created_by>joe.wilmoth@snc</sys_created_by>
+        <sys_created_on>2017-12-04 23:43:41</sys_created_on>
+        <sys_domain>b56e2bb4dbbacb0085895845dc961915</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>e4920152dbb647005c025a6adc96196e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+        <sys_updated_on>2017-12-04 23:43:41</sys_updated_on>
+        <time_worked>1970-01-01 00:00:00</time_worked>
+        <u_choice_1/>
+        <u_functional_failure>Light in working area needs fixing</u_functional_failure>
+        <u_reference_1 display_value="HJB2-AR-SiteFacilities">189db5c3db93b20064615665dc9619ac</u_reference_1>
+        <upon_approval>proceed</upon_approval>
+        <upon_reject>cancel</upon_reject>
+        <urgency>3</urgency>
+        <user_input/>
+        <variables/>
+        <watch_list/>
+        <wf_activity/>
+        <work_end/>
+        <work_notes/>
+        <work_notes_list/>
+        <work_start/>
+    </x_pisn_mnfctops_manufacturing_tag>
+</record_update>
+]]></payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>joe.wilmoth@snc</sys_created_by>
+        <sys_created_on>2018-02-07 17:08:16</sys_created_on>
+        <sys_id>b5675e0bdb4c5b005c025a6adc96195a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>TAG0001043</sys_name>
+        <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+        <sys_update_name>sys_metadata_link_b5675e0bdb4c5b005c025a6adc96195a</sys_update_name>
+        <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+        <sys_updated_on>2018-02-07 17:08:16</sys_updated_on>
+        <tablename>x_pisn_mnfctops_manufacturing_issue</tablename>
+    </sys_metadata_link>
+</record_update>

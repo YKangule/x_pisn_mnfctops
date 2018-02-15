@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function EquipmentBarcodeVariableCtrl($window, $scope, $rootScope) {
+    /* widget controller */
+    var c = this;
+    $rootScope.$on('spModel.gForm.initialized', function (e, gFormInstance) {
+        c.g_form = gFormInstance;
+    });
+    $rootScope.$on('x-pisn-manops.barcode.close_modal', function (e) {
+        //console.log(c.myModalCtrl)
+        if (c.myModalCtrl)
+            c.myModalCtrl.close();
+    });
+    $scope.$on('x-pisn-manops.barcode.resolved', function (e, equipmentData) {
+        if (c.g_form)
+            c.g_form.setValue('cmdb_ci', equipmentData.sys_id);
+        else if ($scope.page.g_form)
+            $scope.page.g_form.setValue('cmdb_ci', equipmentData.sys_id);
+    });
+    c.showBarcodeInput = function () {
+        c.showModal();
+    };
+
+    c.showModal = function () {
+        c.server.get({
+            action: 'show_modal'
+        }).then(function (response) {
+            c.myModalCtrl = null;
+            var myModal = angular.copy(response.data.modalWidget);
+            myModal.options.afterOpen = function (ctrl) {
+                c.myModalCtrl = ctrl;
+            };
+            myModal.options.afterClose = function () {
+                c.modalWidget = null;
+                c.myModalCtrl = null;
+            };
+            c.modalWidget = myModal;
+        });
+    };
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.x-pisn-manops-var-barcode {&#13;
+  &#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>equipment-barcode-variable</id>
+        <internal>false</internal>
+        <link><![CDATA[function EquipmentBarcodeVariableLink(scope, element, attrs, controller, transcludeFn) {
+    var containerSelector = '#a1232471dbb607005c025a6adc9619f2 .select2-container';
+    scope.$watch(
+        function () {
+            return angular.element(containerSelector).length;
+        },
+        function (newValue, oldValue) {
+            if (newValue == 1 && (oldValue == 0 || oldValue == 1)) {
+                //        angular.element(document).ready(function() {
+                var containerElement = containerSelector;
+                var select2Element = angular.element(containerElement).find('.select2-choice');
+                select2Element.css({
+                    width: 'calc(100% - 140px)'
+                });
+                var btnTemplate = angular.element(element).find('.x-pisn-manops-sc-var-barcode-btn')[0];
+
+                angular.element(btnTemplate).appendTo(containerElement);
+            }
+        }
+    );
+
+
+    var container2Selector = '#dddd6abadb3a87005c025a6adc9619c1 .select2-container';
+    scope.$watch(
+        function () {
+            return angular.element(container2Selector).length;
+        },
+        function (newValue, oldValue) {
+            if (newValue == 1 && (oldValue == 0 || oldValue == 1)) {
+                //        angular.element(document).ready(function() {
+                var containerElement = container2Selector;
+                var select2Element = angular.element(containerElement).find('.select2-choice');
+                select2Element.css({
+                    width: 'calc(100% - 140px)'
+                });
+                var btnTemplate = angular.element(element).find('.x-pisn-manops-sc-var-barcode-btn')[0];
+
+                angular.element(btnTemplate).appendTo(containerElement);
+            }
+        }
+    );
+}]]></link>
+        <name>Equipment Barcode Variable</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function () {
+    /* populate the 'data' object */
+    /* e.g., data.table = $sp.getValue('table'); */
+
+    if (input && input.action == 'show_modal') {
+
+        var barcodeWidgetOptions = {
+            table: 'x_pisn_mnfct_cmdb_equipment',
+            lookup_field: 'asset_tag',
+            display_field: 'name'
+        };
+
+        data.modalWidget = $sp.getWidget('widget-modal', {
+            embeddedWidgetId: 'barcode-reader-modal',
+            embeddedWidgetOptions: barcodeWidgetOptions
+        });
+        return;
+    }
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>arthur.oliveira</sys_created_by>
+        <sys_created_on>2017-11-30 23:51:21</sys_created_on>
+        <sys_id>f9fdd08ddbfe83005c025a6adc96191c</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Equipment Barcode Variable</sys_name>
+        <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+        <sys_update_name>sp_widget_f9fdd08ddbfe83005c025a6adc96191c</sys_update_name>
+        <sys_updated_by>darrin.achtman@snc</sys_updated_by>
+        <sys_updated_on>2017-12-19 20:13:15</sys_updated_on>
+        <template><![CDATA[<div class="x-pisn-manops-sc-var-barcode">
+  <sp-widget widget="c.modalWidget" ng-if="c.modalWidget"></sp-widget>
+    <div class="x-pisn-manops-sc-var-barcode-btn">
+    <button class="btn btn-default btn-input" ng-click="c.showBarcodeInput()" style="
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      top: 0;
+    "><i class="fa fa-barcode"></i></button>
+      <button class="btn btn-primary btn-input" ng-click="c.showBarcodeInput()" style="
+      	display: inline-block;
+      	position: absolute;
+      	right: 0;
+      	top: 0;" role="button">
+        	<i class="fa fa-barcode"></i><span class="m-l-xs">${Scan Barcode}</span>
+      </button>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

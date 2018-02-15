@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element attributes="update_synch=true" extends="sys_metadata" label="Manufacturing Issue Impact Type" max_length="40" name="x_pisn_mnfctops_manufacturing_issue_impact_type" type="collection">
+        <element label="ID" max_length="80" name="id" type="string"/>
+        <element display="true" label="Label" max_length="255" name="label" type="translated_text"/>
+    </element>
+</database>

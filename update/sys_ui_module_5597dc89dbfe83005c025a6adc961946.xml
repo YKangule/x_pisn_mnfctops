@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_ui_module">
+    <sys_ui_module action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <application display_value="Manufacturing Operations">157d7b2fdb264b0085895845dc96193b</application>
+        <filter/>
+        <name>Manufacturing Tags</name>
+        <order/>
+        <path/>
+        <path_relative_to_root>false</path_relative_to_root>
+        <roles>x_pisn_mnfctops.user</roles>
+        <sys_class_name>sys_ui_module</sys_class_name>
+        <sys_created_by>joe.wilmoth@snc</sys_created_by>
+        <sys_created_on>2017-11-30 23:23:28</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>5597dc89dbfe83005c025a6adc961946</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Manufacturing Tags</sys_name>
+        <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+        <sys_update_name>sys_ui_module_5597dc89dbfe83005c025a6adc961946</sys_update_name>
+        <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+        <sys_updated_on>2017-11-30 23:23:28</sys_updated_on>
+        <table>x_pisn_mnfctops_manufacturing_tag</table>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+    </sys_ui_module>
+</record_update>

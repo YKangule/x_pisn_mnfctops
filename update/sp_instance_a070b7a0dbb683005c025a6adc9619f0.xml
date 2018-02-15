@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">7e6033a0dbb683005c025a6adc961952</sp_column>
+        <sp_widget display_value="Manufacturing Homepage Search">e71f2b20dbb683005c025a6adc9619f7</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>arthur.oliveira</sys_created_by>
+        <sys_created_on>2017-11-30 01:53:59</sys_created_on>
+        <sys_id>a070b7a0dbb683005c025a6adc9619f0</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Welcome to Hengtan</sys_name>
+        <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+        <sys_update_name>sp_instance_a070b7a0dbb683005c025a6adc9619f0</sys_update_name>
+        <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+        <sys_updated_on>2017-12-21 16:24:47</sys_updated_on>
+        <title>Welcome to Hengtan</title>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"typeahead_search": {
+		"value": "{ title: 'Search the Knowledge Base and Known Errors' }",
+		"displayValue": "{ title: 'Search the Knowledge Base and Known Errors' }"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=a070b7a0dbb683005c025a6adc9619f0"/>
+</record_update>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_container">
+    <sp_container action="INSERT_OR_UPDATE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>Tag Detail - Container 1</name>
+        <order>1</order>
+        <sp_page display_value="tag_detail">cea5d56fdbbec30085895845dc9619ae</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>arthur.oliveira</sys_created_by>
+        <sys_created_on>2017-12-08 22:19:29</sys_created_on>
+        <sys_id>06a5d56fdbbec30085895845dc9619b1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Tag Detail - Container 1</sys_name>
+        <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+        <sys_update_name>sp_container_06a5d56fdbbec30085895845dc9619b1</sys_update_name>
+        <sys_updated_by>arthur.oliveira</sys_updated_by>
+        <sys_updated_on>2017-12-08 22:19:29</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+</record_update>

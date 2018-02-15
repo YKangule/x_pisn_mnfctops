@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function(cabrillo,$scope,$window, ndlConnectService) {
+  /* widget controller */
+  var c = this;
+	
+	$scope.isViewNative = false;
+	if (cabrillo.isNative())
+		$scope.isViewNative = true;
+	
+  c.call = call;
+	c.openChat = function(userID) {
+		return ndlConnectService.openUserChat(userID,$scope.isViewNative);
+	}
+	
+  function call(telNumber) {
+    if (telNumber) {
+      $window.location.href = 'tel://' + telNumber;
+    }
+  }
+	
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.x-pisn-brewops-coe-support--connect-icons {&#13;
+  min-width: 80px;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>coe-support</id>
+        <internal>false</internal>
+        <link/>
+        <name>COE Support</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  input = input || {};
+  data.sys_id = input.sys_id || options.sys_id || $sp.getParameter('sys_id');
+
+	
+  var taskGR = new GlideRecord('task');
+  data.found_task = taskGR.get(data.sys_id);
+	
+  if (!data.found_task)
+	  return;
+	
+  data.ci_id = taskGR.getValue('cmdb_ci');
+  
+	
+  var ciGR = new GlideRecord('cmdb_ci');
+  data.found_ci = ciGR.get(taskGR.cmdb_ci.toString());
+	
+  data.config_item = {
+	  sys_id: ciGR.getUniqueValue(),
+	  name: ciGR.name.getDisplayValue()
+  };
+  
+  var modelSkillsGR = new GlideRecord('cmn_m2m_skill_model');
+  modelSkillsGR.addQuery('model', ciGR.model_id.toString());
+  modelSkillsGR.query();
+  
+  var skillIDs = [];
+  
+  while (modelSkillsGR.next()) {
+    skillIDs.push(modelSkillsGR.skill.toString());
+  }
+	
+  data.skills = skillIDs;
+  
+  var su = new global.SkillsUtils();
+  var groupIDs = su.getAllSkilledGroupIds(skillIDs);
+  
+  var groupGR = new GlideRecord('sys_user_group');
+  groupGR.addQuery('sys_id', groupIDs);
+  groupGR.orderBy('name');
+  groupGR.query();
+  
+  data.groups = [];
+  
+  while (groupGR.next()) {
+    data.groups.push({
+      sys_id: groupGR.getUniqueValue(),
+      name: groupGR.name.getDisplayValue(),
+      members: []
+    });
+  }
+  
+  var groupMemberGR = new GlideRecord('sys_user_grmember');
+  groupMemberGR.addQuery('group', groupIDs);
+  groupMemberGR.query();
+  
+  var members = {};
+  
+  while (groupMemberGR.next()) {
+    var groupID = groupMemberGR.group.toString();
+    if (!members.hasOwnProperty(groupID)) {
+      members[groupID] = [];
+    }
+    
+    members[groupID].push({
+      sys_id: groupMemberGR.user.toString(),
+      name: groupMemberGR.user.getDisplayValue()
+    });
+  }
+  
+  data.groups.forEach(function(group) {
+    group.members = members[group.sys_id] || [];
+  });
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>arthur.oliveira</sys_created_by>
+        <sys_created_on>2017-12-08 22:22:59</sys_created_on>
+        <sys_id>c75699afdbbec30085895845dc9619bd</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>COE Support</sys_name>
+        <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+        <sys_update_name>sp_widget_c75699afdbbec30085895845dc9619bd</sys_update_name>
+        <sys_updated_by>darrin.achtman@snc</sys_updated_by>
+        <sys_updated_on>2017-12-19 20:11:10</sys_updated_on>
+        <template><![CDATA[<div class="x-pisn-brewops-coe-support">
+  <ndl-panel class="panel-default" ng-if="c.data.groups.length != 0">
+    <ndl-panel-heading><h4 class="panel-title">${COE Connect}: {{::c.data.groups[0].name}}</h4></ndl-panel-heading>
+    <ndl-panel-body ng-if="c.data.groups.length == 0">
+      <span class="text-danger">${Unable to derive CoE Support Group for:} {{::data.config_item.name}}</span>
+    </ndl-panel-body>
+    <ndl-list-group ng-repeat="group in c.data.groups">
+      <ndl-list-group-item ng-repeat="member in group.members">
+        <div class="media">
+          <div class="media-left">
+            <sn-avatar primary="member.sys_id" show-presence="true" class="contact-avatar" enable-context-menu="false" />
+          </div>
+          <div class="media-body">
+            {{::member.name}}
+          </div>
+          <div class="media-right text-right x-pisn-brewops-coe-support--connect-icons">
+            <i class="m-r fa fa-comment fa-2x fa-color" ng-click="c.openChat(member.sys_id)" aria-hidden="true"></i>
+            <i ng-click="c.call(data.user_phone)" class="fa fa-phone fa-2x fa-color" aria-hidden="true"></i>
+          </div>
+        </div>
+      </ndl-list-group-item>
+    </ndl-list-group>
+  </ndl-panel>
+</div>]]></template>
+    </sp_widget>
+</record_update>

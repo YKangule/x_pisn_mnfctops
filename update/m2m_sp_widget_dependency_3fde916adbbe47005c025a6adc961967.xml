@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="m2m_sp_widget_dependency">
+    <m2m_sp_widget_dependency action="INSERT_OR_UPDATE">
+        <sp_dependency display_value="QuaggaJS">18ded16adbbe47005c025a6adc96190d</sp_dependency>
+        <sp_widget display_value="Barcode Reader Modal">fcced40ddbfe83005c025a6adc96198a</sp_widget>
+        <sys_class_name>m2m_sp_widget_dependency</sys_class_name>
+        <sys_created_by>arthur.oliveira</sys_created_by>
+        <sys_created_on>2017-12-05 20:25:49</sys_created_on>
+        <sys_id>3fde916adbbe47005c025a6adc961967</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>QuaggaJS.Barcode Reader Modal</sys_name>
+        <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+        <sys_update_name>m2m_sp_widget_dependency_3fde916adbbe47005c025a6adc961967</sys_update_name>
+        <sys_updated_by>arthur.oliveira</sys_updated_by>
+        <sys_updated_on>2017-12-05 20:25:49</sys_updated_on>
+    </m2m_sp_widget_dependency>
+</record_update>

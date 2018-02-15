@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, spModal, $rootScope, spUtil) {
+	/* widget controller */
+	var c = this;
+	
+	c.showRecord = function(gr) {
+		spModal.open({
+			title: gr.display_value,
+			widget: 'widget-form',
+			widgetInput: {
+				table: gr.table,
+				sys_id: gr.sys_id,
+				view: 'sp',
+				disableUIActions: true,
+				showFormView: false,
+				omitHeaderOptions: true
+			},
+			size: 'lg',
+			buttons: [
+			{label:'${Back}', cancel: true}
+      ]
+    });
+  };
+  
+  c.refresh = function() {
+    spUtil.update($scope);
+  };
+
+  $rootScope.$on("field.change", function(evt, parms) {
+    //console.log(parms);
+    if (parms.newValue == parms.oldValue)
+      return;
+
+    if (parms.field.variable_name == 'cmdb_ci') {
+      c.data.cmdb_ci = parms.newValue;
+      c.refresh();
+    }
+	});
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>related-incidents</id>
+        <internal>false</internal>
+        <link/>
+        <name>Related Incidents</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  input = input || {};
+  data.records = [];
+	
+  data.table = "x_pisn_mnfctops_manufacturing_issue";//input.table || options.table;
+  data.cmdb_ci = input.cmdb_ci;
+  if (!data.cmdb_ci)
+	  return;
+
+  var gr = new GlideRecord(data.table);
+  gr.addQuery('cmdb_ci', data.cmdb_ci);
+  gr.orderByDesc('sys_updated_on');
+  gr.setLimit(5);
+  gr.query();
+	
+  options.secondary_fields = options.secondary_fields || [];
+	
+  while (gr.next()) {
+	  data.records.push({
+		  table: gr.sys_class_name.toString(),
+		  sys_id: gr.getUniqueValue(),
+		  display_value: gr.getDisplayValue(),
+		  secondary_fields: $sp.getFields(gr, options.secondary_fields)
+	  });
+  }
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>arthur.oliveira</sys_created_by>
+        <sys_created_on>2017-11-30 22:03:30</sys_created_on>
+        <sys_id>f5458c4ddbbe83005c025a6adc96191a</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Related Incidents</sys_name>
+        <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+        <sys_update_name>sp_widget_f5458c4ddbbe83005c025a6adc96191a</sys_update_name>
+        <sys_updated_by>darrin.achtman@snc</sys_updated_by>
+        <sys_updated_on>2017-12-19 20:15:35</sys_updated_on>
+        <template><![CDATA[<div class="x-pisn-manops-related-incidents">
+  <ndl-panel ng-if="data.records.length != 0" class="panel-{{::options.color}}">
+    <ndl-panel-heading><h4 class="panel-title">{{::options.title}}</h4></ndl-panel-heading>
+    <ndl-list-group>
+      <ndl-list-group-item ng-repeat="gr in data.records" ng-click="c.showRecord(gr)">
+        <h5 class="list-group-item-heading">{{::gr.display_value}}</h5>
+        <div class="list-group-item-text">
+          <div ng-repeat="f in gr.secondary_fields">
+            {{::f.display_value}}
+          </div>
+        </div>
+      </ndl-list-group-item>
+    </ndl-list-group>
+  </ndl-panel>
+</div>]]></template>
+    </sp_widget>
+</record_update>

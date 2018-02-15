@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function BarcodeReaderFiController($scope, $window, $q, $rootScope, cabrillo) {
+  /* widget controller */
+  var c = this;
+
+  c.isNative = cabrillo.isNative();
+  c.title = c.options.title;
+  c.processing_state = '';
+  c.data.products = [];
+  c.callbackBarcode = {};
+  c.callbackBarcode.warningText = '';
+
+  c.selectAndClose = function () {
+    $rootScope.$broadcast('x-pisn-manops.barcode.resolved', c.matching_record);
+    $rootScope.$broadcast('x-pisn-manops.barcode.close_modal');
+  };
+
+    c.handleNativeResult = function (result) {
+      
+      c.callbackBarcode = angular.copy(result);
+      c.callbackBarcode.warningText = '';
+      c.barcode = angular.copy(result);
+
+      c.getProductModel(result, true);
+    };
+	
+	c.handleNativeError = function (err) {
+      c.processing_state = 'error_no_barcode';
+      c.callbackBarcode = {};
+      c.callbackBarcode.warningText = errorMessage;
+
+    };
+	
+  c.triggerBarcodeNative = function () {
+    cabrillo.camera.getBarcode().then(
+      c.handleNativeResult,
+      c.handleNativeError
+    );
+  };
+	
+	
+  $scope.handleFileChange = function (e) {
+		console.log('handleFileChange',e);
+		
+    if (!e.target.files || e.target.files.length == 0)
+      return;
+
+    c.processing_state = 'uploading';
+    c.image_src = '';
+    $scope.$apply();
+    c.image_src = URL.createObjectURL(e.target.files[0]);
+
+    decodeImage(c.image_src).then(function (result) {
+      //c.status_message 
+      c.callbackBarcode = angular.copy(result);
+      c.callbackBarcode.warningText = '';
+      c.barcode = angular.copy(result.codeResult.code);
+
+      c.getProductModel(result.codeResult.code, true);
+    }, function (errorMessage) {
+      c.processing_state = 'error_no_barcode';
+      c.callbackBarcode = {};
+      c.callbackBarcode.warningText = errorMessage;
+    })
+  }
+	
+  var decodeImage = function (src) {
+    var config = angular.extend({}, {
+      src: src
+    });
+
+    return $q(function (resolve, reject) {
+      Quagga.decodeSingle(config, function (result) {
+        if (result.codeResult) {
+          resolve(result);
+        } else {
+          reject("${Unable to find barcode in image}")
+        }
+      });
+    });
+  }
+
+
+  c.getProductModel = function (code, auto) {
+    c.processing_state = 'searching_cmdb'
+    c.server.get({
+      action: 'lookup_barcode',
+      table: c.data.table,
+      display_field: c.data.display_field,
+      lookup_field: c.data.lookup_field,
+      secondary_fields: c.data.secondary_fields,
+      barcode: code
+    }).then(function (response) {
+      if (response.data.products.length > 0) {
+
+        c.data.products = response.data.products;
+        if (auto == false)
+          c.data.resultProducts = c.data.products;
+
+        c.processing_state = 'record_found';
+        c.matching_record = angular.copy(c.data.products[0]);
+
+        return c.data.products;
+      } else {
+        c.data.resultProducts = [];
+      }
+    });
+  }
+
+  if (!$scope.readers) {
+    $scope.readers = [{
+      format: 'code_128_reader',
+      config: {}
+    }];
+  }
+  if (!$scope.patchSize)
+    $scope.patchSize = 'large';
+  if (!$scope.size)
+    $scope.size = '800';
+  var multiple = false;
+  if ($scope.readers.length > 1)
+    multiple = true;
+  c.input_properties = {
+    'inputStream': {
+      'size': $scope.size,
+      'singleChannel': false
+    },
+    'locator': {
+      'patchSize': $scope.patchSize,
+      'halfSample': true
+    },
+    'decoder': {
+      readers: $scope.readers,
+      multiple: false
+    },
+    'locate': true,
+    'src': null
+  };
+
+  console.log('QuaggaJS config used: ', c.input_properties);
+
+  var App = {
+    init: function () {
+			//App.attachListeners();
+    },
+    attachListeners: function () {
+      var self = this;
+			/*
+      $('.form-group input[type=file]').on('change', function (e) {
+				console.log('decode image',e);
+				
+        if (e.target.files && e.target.files.length) {
+					console.log('decode image',e);
+          App.decode(URL.createObjectURL(e.target.files[0]));
+        }
+      });*/
+			
+			
+			
+			
+    },
+    _accessByPath: function (obj, path, val) {
+      var parts = path.split('.'),
+        depth = parts.length,
+        setter = (typeof val !== 'undefined') ? true : false;
+      return parts.reduce(function (o, key, i) {
+        if (setter && (i + 1) === depth) {
+          o[key] = val;
+        }
+        return key in o ? o[key] : {};
+      }, obj);
+    },
+    _convertNameToState: function (name) {
+      return name.replace('_', '.').split('-').reduce(function (result, value) {
+        return result + value.charAt(0).toUpperCase() + value.substring(1);
+      });
+    },
+    decode: function (src) {
+      var self = this,
+        config = $.extend({}, self.state, {
+          src: src
+        });
+      Quagga.decodeSingle(config, function (result) {
+        if (!result.codeResult) {
+          console.log('QuaggaJS barcode not aquired ', result);
+        }
+      });
+    },
+    inputMapper: {
+      inputStream: {
+        size: function (value) {
+          return parseInt(value);
+        }
+      },
+      numOfWorkers: function (value) {
+        return parseInt(value);
+      },
+      decoder: {
+        readers: function (value) {
+          if (value === 'ean_extended') {
+            return [{
+              format: 'ean_reader',
+              config: {
+                supplements: [
+                  'ean_5_reader', 'ean_2_reader'
+                ]
+              }
+            }];
+          }
+          return [{
+            format: value + '_reader',
+            config: {}
+          }];
+        }
+      }
+    },
+    state: c.input_properties
+  };
+
+  App.init();
+
+  function calculateRectFromArea(canvas, area) {
+    var canvasWidth = canvas.width,
+      canvasHeight = canvas.height,
+      top = parseInt(area.top) / 100,
+      right = parseInt(area.right) / 100,
+      bottom = parseInt(area.bottom) / 100,
+      left = parseInt(area.left) / 100;
+    top *= canvasHeight;
+    right = canvasWidth - canvasWidth * right;
+    bottom = canvasHeight - canvasHeight * bottom;
+    left *= canvasWidth;
+    return {
+      x: left,
+      y: top,
+      width: right - left,
+      height: bottom - top
+    };
+  }
+  Quagga.onProcessed(function (result) {
+    var drawingCtx = Quagga.canvas.ctx.overlay,
+      drawingCanvas = Quagga.canvas.dom.overlay,
+      area;
+    if (result) {
+      if (result.boxes) {
+        drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute('width')), parseInt(drawingCanvas.getAttribute('height')));
+        result.boxes.filter(function (box) {
+          return box !== result.box;
+        }).forEach(function (box) {
+          Quagga.ImageDebug.drawPath(box, {
+            x: 0,
+            y: 1
+          }, drawingCtx, {
+            color: 'green',
+            lineWidth: 2
+          });
+        });
+      }
+      if (result.box) {
+        Quagga.ImageDebug.drawPath(result.box, {
+          x: 0,
+          y: 1
+        }, drawingCtx, {
+          color: '#00F',
+          lineWidth: 2
+        });
+      }
+      if (result.codeResult && result.codeResult.code) {
+        Quagga.ImageDebug.drawPath(result.line, {
+          x: 'x',
+          y: 'y'
+        }, drawingCtx, {
+          color: 'red',
+          lineWidth: 3
+        });
+      }
+      if (App.state.inputStream.area) {
+        area = calculateRectFromArea(drawingCanvas, App.state.inputStream.area);
+        drawingCtx.strokeStyle = '#0F0';
+        drawingCtx.strokeRect(area.x, area.y, area.width, area.height);
+      }
+    }
+  });
+  Quagga.onDetected(function (result) {
+    var code = result.codeResult.code.trim();
+    console.log('QuaggaJS detected code: ' + code);
+  });
+	
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.ndl-util-overlay {
+  background: rgba(255, 255, 255, 0.8)
+}
+
+.x-pisn-manops-barcode--image-container {
+  min-height: 300px;
+  max-height: 300px;
+  text-align: center;
+}
+
+.x-pisn-manops-barcode--image-container img {
+  max-height:300px;
+  margin: 0 auto;
+}
+
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  cursor: pointer;
+  background-color: $gray-lighter;
+  border-radius: 4px;
+  height: 42px;
+  border: 0px;
+  width: 200px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.element-container input:focus+.results {
+  display: block
+}
+
+.element-container .results {
+  position: absolute;
+  top: 38px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 0;
+  margin: 0;
+  border-width: 0px;
+  border-style: solid;
+  border-color: #cbcfe2 #c8cee7 #c4c7d7;
+  border-radius: 4px;
+  background-color: $gray-lighter;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.results-hide {
+  display: none;
+}
+
+.element-container .results li {
+  display: block
+}
+
+.element-container .results li:first-child {
+  margin-top: -1px
+}
+
+.element-container .results li:first-child:before,
+.element-container .results li:first-child:after {
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  margin-left: -5px;
+  border: 5px outset transparent;
+}
+
+.element-container .results li:first-child:before {
+  border-bottom: 5px solid #c4c7d7;
+  top: -11px;
+}
+
+.element-container .results li:first-child:after {
+  border-bottom: 5px solid #fdfdfd;
+  top: -10px;
+}
+
+.element-container .results li:first-child:hover:before,
+.element-container .results li:first-child:hover:after {
+  display: none
+}
+
+.element-container .results li:last-child {
+  margin-bottom: -1px
+}
+
+.element-container .results a {
+  display: block;
+  position: relative;
+  margin: 0 -1px;
+  padding: 6px 40px 6px 10px;
+  font-weight: 500;
+  text-shadow: 0 1px #fff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+.element-container .results a:before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -9px;
+}
+
+.element-container .results a:hover {
+  text-decoration: none;
+  color: #fff;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+  border-color: $brand-primary;
+  background-color: $brand-primary;
+}
+
+.ndl-alert {
+  color: $brand-warning;
+}
+
+#interactive.viewport {
+  width: 640px;
+  height: auto;
+}
+
+#interactive.viewport canvas,
+video {
+  float: left;
+  width: 640px;
+  height: auto;
+}
+
+#interactive.viewport canvas.drawingBuffer,
+video.drawingBuffer {
+  margin-left: -640px;
+}
+
+#result_strip {
+  margin: 10px 0;
+  border-top: 1px solid #EEE;
+  border-bottom: 1px solid #EEE;
+  padding: 10px 0;
+}
+
+#result_strip&gt;ul {
+  padding: 0;
+  margin: 5px;
+  list-style-type: none;
+  width: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+#result_strip&gt;ul&gt;li {
+  display: inline-block;
+  vertical-align: middle;
+  width: 160px;
+}
+
+#result_strip&gt;ul&gt;li .thumbnail {
+  padding: 5px;
+  margin: 4px;
+  border: 1px dashed #CCC;
+}
+
+#result_strip&gt;ul&gt;li .thumbnail img {
+  max-width: 140px;
+}
+
+#result_strip&gt;ul&gt;li .thumbnail .caption {
+  white-space: normal;
+}
+
+#result_strip&gt;ul&gt;li .thumbnail .caption h4 {
+  text-align: center;
+  word-wrap: break-word;
+  height: 40px;
+  margin: 0px;
+}
+
+#result_strip&gt;ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 603px) {
+  #interactive.viewport {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    margin: auto;
+  }
+  #interactive.viewport canvas,
+  video {
+    margin-top: -50px;
+    width: 300px;
+    height: 400px;
+  }
+  #interactive.viewport canvas.drawingBuffer,
+  video.drawingBuffer {
+    margin-left: -300px;
+  }
+  #result_strip {
+    margin-top: 5px;
+    padding-top: 5px;
+  }
+  #result_strip ul.thumbnails&gt;li {
+    width: 150px;
+  }
+  #result_strip ul.thumbnails&gt;li .thumbnail .imgWrapper {
+    width: 130px;
+    height: 130px;
+    overflow: hidden;
+  }
+  #result_strip ul.thumbnails&gt;li .thumbnail .imgWrapper img {
+    margin-top: -25px;
+    width: 130px;
+    height: 180px;
+  }
+}
+
+.ndl-center {
+  margin: auto;
+  text-align: center;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>barcode-reader-modal</id>
+        <internal>false</internal>
+        <link><![CDATA[function(scope, element, attrs, controller, transcludeFn) {	
+scope.$watch(scope.c,function (newValue, oldValue, scope) {
+
+	element.find('.ndl-input-barcode').bind('change',
+function(e) {
+		scope.handleFileChange(e);
+	}
+);
+	
+});
+	
+	
+}]]></link>
+        <name>Barcode Reader Modal</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function () {
+  input = input || {};
+  data.flagthumbnails = true;
+  data.flagpreview = true;
+
+  options.debug = options.debug || false;
+  options.title = options.title || gs.getMessage('Barcode Reader');
+  data.table = input.table || options.table;
+  data.display_field = input.display_field || options.display_field;
+  data.lookup_field = input.lookup_field || options.lookup_field;
+  options.secondary_fields = options.secondary_fields || "";
+  
+
+  if (input && input.action == 'lookup_barcode') {
+    data.barcode = input.barcode;
+    if (data.barcode)
+      data.barcode = data.barcode.trim();
+
+    data.products = [];
+
+    if (data.table && data.display_field && data.lookup_field) {
+      var gr = new GlideRecord(data.table);
+      gr.addQuery(data.lookup_field, 'CONTAINS', data.barcode);
+      gr.query();
+		
+		data.query = gr.getEncodedQuery();
+      var temp = {};
+      while (gr.next()) {
+        temgrp = {};
+        temp.sys_id = gr.getUniqueValue();
+        temp.label = gr.getDisplayValue(data.display_field);
+        temp.lookup_value = gr.getDisplayValue(data.lookup_field);
+        temp.secondary_fields = $sp.getFields(gr, options.secondary_fields);
+
+        data.products.push(temp);
+      }
+    }
+  }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>arthur.oliveira</sys_created_by>
+        <sys_created_on>2017-11-30 23:54:50</sys_created_on>
+        <sys_id>fcced40ddbfe83005c025a6adc96198a</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Barcode Reader Modal</sys_name>
+        <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+        <sys_update_name>sp_widget_fcced40ddbfe83005c025a6adc96198a</sys_update_name>
+        <sys_updated_by>darrin.achtman@snc</sys_updated_by>
+        <sys_updated_on>2017-12-19 20:07:38</sys_updated_on>
+        <template><![CDATA[<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="barcode">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000"
+      enable-background="new 0 0 1000 1000" xml:space="preserve">
+      <g>
+        <path d="M206,206h-65.3v588H206h65.3V206H206z M794,206h-65.3v588H794h65.3V206H794z M990,794V206h-65.3v588H990z M598,794V206h-65.3v588H598z M402,206h-65.3v588H402h65.3V206H402z M75.3,794V206H10v588H75.3z"
+        />
+      </g>
+    </svg>
+  </symbol>
+</svg>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h5>{{c.title}}</h5>
+    </div>
+    <div class="col-md-12 ndl-main-section ndl-center">
+      <div ng-show="c.processing_state == ''">
+        <svg viewBox="0 0 33 33" width="200px" height="150px">
+          <use xlink:href="#barcode"></use>
+        </svg>
+        <div>
+          <div class="form-group" ng-if="c.isNative">
+            <button class="btn btn-primary" ng-click="c.triggerBarcodeNative()">${Scan Barcode}</button>
+            
+          </div>
+          <div class="form-group" ng-if="!c.isNative">
+            <label for="file-upload" class="btn btn-primary">${Scan Barcode 1}</label>
+            <input class="ndl-input-barcode" id="file-upload" type="file" accept="image/*;capture=camera" />
+          </div>
+        </div>
+      </div>
+      <div ng-if="c.processing_state != ''">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 col-xs-12 x-pisn-manops-barcode--image-container m-b">
+            <ndl-overlay ng-if="c.processing_state == 'uploading'">
+              <ndl-loading-message message="${Processing image}"></ndl-loading-message>
+            </ndl-overlay>
+            <ndl-overlay ng-if="c.processing_state == 'searching_cmdb'">
+              <div>${Barcode found}: {{::c.barcode}}</div>
+              <ndl-loading-message message="${Searching for matching equipment}"></ndl-loading-message>
+            </ndl-overlay>
+            <ndl-overlay ng-if="c.processing_state == 'error_no_barcode'">
+              <div class="text-danger">${Could not find barcode}</div>
+              <div>${Please try to take another photo}</div>
+              <div class="form-group m-t-lg">
+                <label for="file-upload" class="btn btn-primary">${Re-scan Barcode}</label>
+                <input class="ndl-input-barcode" id="file-upload" type="file" accept="image/*;capture=camera" />
+              </div>
+            </ndl-overlay>
+            <ndl-overlay ng-if="c.processing_state == 'record_found'">
+              <div class="text-success"><i class="fa fa-4x fa-check-circle"></i></div>
+              <div>${Equipment Found}</div>
+              <div class="h5">{{c.matching_record.label}}</div>
+              <button class="btn btn-primary m-t-lg" ng-click="c.selectAndClose()">${Select Equipment}</button>
+            </ndl-overlay>
+            <img class="img-responsive" ng-if="c.image_src" ng-src="{{c.image_src}}" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

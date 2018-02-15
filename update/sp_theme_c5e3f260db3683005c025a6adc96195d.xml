@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_theme">
+    <sp_theme action="INSERT_OR_UPDATE">
+        <css_variables>$brand-color: #68A6C9;&#13;
+&#13;
+$body-bg: #F0F1F2;&#13;
+$dropdown-header-color: #FFF;&#13;
+$sp-navbar-divider-color: #FFF;&#13;
+$navbar-default-bg: #F0F1F2;&#13;
+$brand-primary: $brand-color;&#13;
+$navbar-default-brand-color: #686460;&#13;
+$headings-color: #428bca;&#13;
+$heading-text-color: #428bca;&#13;
+$text-color: #4B505C;&#13;
+$table-border-color: #8CC29F;&#13;
+$table-bg: #FFF;&#13;
+$link-color: #68A6C9;&#13;
+$dropdown-bg: rgba(255, 255, 255, 0.95);&#13;
+$headings-font-family: "Oswald", arial, sanserif;&#13;
+&#13;
+&#13;
+// Panel Styles&#13;
+$panel-default-border: transparent;&#13;
+$panel-border-radius: 0;&#13;
+$panel-default-text: white;&#13;
+$panel-default-heading-bg: $brand-color;&#13;
+$panel-primary-heading-bg: $brand-color;&#13;
+$sp-tagline-color: white;&#13;
+&#13;
+.sp-tagline-color {&#13;
+	text-shadow: 1px 1px 2px black, 0 0 1em #68A6C9, 0 0 0.2em #68A6C9;&#13;
+}&#13;
+&#13;
+$list-group-border: #BBC8D7;&#13;
+$sp-logo-max-height: 24px;&#13;
+&#13;
+.btn.btn-primary {&#13;
+   background-color: $brand-primary;&#13;
+}&#13;
+&#13;
+.page {&#13;
+  .panel {&#13;
+    border-radius: 0;&#13;
+  }&#13;
+  &#13;
+  .panel-heading {&#13;
+     border-radius: 0;&#13;
+  }&#13;
+  &#13;
+  .panel-title, .panel-heading .dropdown {&#13;
+    margin: 0;&#13;
+    line-height: 40px;&#13;
+    font-size: 16px;&#13;
+    color: inherit;&#13;
+    text-overflow: ellipsis;&#13;
+    font-family: $headings-font-family;&#13;
+   }&#13;
+   &#13;
+   .panel-title {&#13;
+     height: 40px;&#13;
+     overflow: hidden;&#13;
+     white-space: nowrap;&#13;
+   }&#13;
+}&#13;
+&#13;
+.panel-heading .panel-title {&#13;
+   /*text-transform: uppercase;*/&#13;
+}&#13;
+&#13;
+&#13;
+.select2-results li {&#13;
+  border-top: 1px solid rgba(0,0,0,0.1);&#13;
+}&#13;
+&#13;
+.select2-results li:first-child {&#13;
+  border-top: none;&#13;
+}&#13;
+&#13;
+#gsft_main nav.navbar {&#13;
+   display: none;&#13;
+}&#13;
+</css_variables>
+        <footer/>
+        <footer_fixed>false</footer_fixed>
+        <header display_value="Manufacturing Header">baac24ecdb87470085895845dc9619ac</header>
+        <name>Manufacturing</name>
+        <navbar_fixed>true</navbar_fixed>
+        <sys_class_name>sp_theme</sys_class_name>
+        <sys_created_by>arthur.oliveira@snc</sys_created_by>
+        <sys_created_on>2017-11-29 21:29:34</sys_created_on>
+        <sys_id>c5e3f260db3683005c025a6adc96195d</sys_id>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name>Manufacturing</sys_name>
+        <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+        <sys_update_name>sp_theme_c5e3f260db3683005c025a6adc96195d</sys_update_name>
+        <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+        <sys_updated_on>2018-02-08 20:30:03</sys_updated_on>
+    </sp_theme>
+</record_update>

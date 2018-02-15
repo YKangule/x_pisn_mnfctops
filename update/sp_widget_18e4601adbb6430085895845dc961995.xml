@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, $rootScope, spUtil) {
+  /* widget controller */
+  var c = this;
+
+  $rootScope.$on("field.change", function(evt, parms) {
+    if (parms.newValue == parms.oldValue)
+      return;
+		
+    if (parms.field.variable_name != c.data.variable_name)
+      return;
+		
+    c.data.selected_ci = parms.newValue;
+    spUtil.update($scope);
+  });
+	
+	var includedGformInstances = {};
+	
+	$rootScope.$on('spModel.gForm.initialized', function(e, gFormInstance) {
+		includedGformInstances[gFormInstance.getSysId()] = gFormInstance;
+	});
+
+	$scope.$on('spModel.gForm.destroyed', function(e, sys_id){
+		delete includedGformInstances[sys_id];
+	});
+	
+	c.selectConfigurationItem = function(ciGR) {
+		angular.forEach(includedGformInstances, function(gForm, catItemID) {
+			gForm.setValue(c.data.variable_name, ciGR.sys_id, ciGR.display_value);
+		});
+	};
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.x-pisn-manops-equipment-hierarchy__children {&#13;
+  height: 220px;&#13;
+  overflow-y: scroll;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>equipment-hierarchy</id>
+        <internal>false</internal>
+        <link/>
+        <name>Equipment Hierarchy</name>
+        <option_schema>[{"name":"variable_name","default_value":"cmdb_co","label":"Variable name","type":"string"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  input = input || {};
+  data.selected_ci = input.selected_ci;
+  data.hierarchy = [];
+	
+	data.variable_name = 'cmdb_ci';
+  
+  if (!data.selected_ci)
+	  return;
+	
+  
+  var ciGR = new GlideRecord('cmdb_ci');
+  ciGR.get(data.selected_ci);
+	
+  var realGR = new GlideRecord(ciGR.sys_class_name.toString());
+  realGR.get(ciGR.getUniqueValue());
+
+  data.display_value = ciGR.getDisplayValue();
+  data.sys_id = ciGR.getUniqueValue();
+
+
+  var buildHierarchy = function(currentGR) {
+	  data.hierarchy.unshift({
+		  sys_id: currentGR.getUniqueValue(),
+		  display_value: currentGR.getDisplayValue(),
+		  sys_class_name: currentGR.sys_class_name.getDisplayValue()
+	  });
+	  
+	  if (currentGR.parent.nil())
+		  return;
+	  
+	  var parentGR = new GlideRecord(currentGR.parent.sys_class_name);
+	  parentGR.get(currentGR.parent.toString());
+	  
+	  buildHierarchy(parentGR);
+  };
+
+	buildHierarchy(realGR);
+	
+	
+	var childGR = new GlideRecord('cmdb_ci');
+	childGR.addQuery('parent', realGR.getUniqueValue());
+	childGR.query();
+	
+	data.children = [];
+	
+	while (childGR.next()) {
+		data.children.push({
+			sys_id: childGR.getUniqueValue(),
+			display_value: childGR.getDisplayValue(),
+			sys_class_name: childGR.sys_class_name.toString()
+		});
+	}
+	
+	var childServiceElementGR = new GlideRecord('cmdb_ci');
+	childServiceElementGR.addQuery('parent', realGR.getUniqueValue());
+	childServiceElementGR.query();
+	
+	while (childServiceElementGR.next()) {
+		data.children.push({
+			sys_id: childServiceElementGR.getUniqueValue(),
+			display_value: childServiceElementGR.getDisplayValue(),
+			sys_class_name: childServiceElementGR.sys_class_name.toString()
+		});
+	}
+
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>arthur.oliveira</sys_created_by>
+        <sys_created_on>2017-12-04 21:34:24</sys_created_on>
+        <sys_id>18e4601adbb6430085895845dc961995</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Equipment Hierarchy</sys_name>
+        <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+        <sys_update_name>sp_widget_18e4601adbb6430085895845dc961995</sys_update_name>
+        <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+        <sys_updated_on>2017-12-21 15:54:45</sys_updated_on>
+        <template><![CDATA[<div class="x-pisn-manops-equipment-hierarchy m-t-n">
+  <ndl-panel ng-if="data.hierarchy.length > 0" class="panel-default">
+    <ndl-panel-body>
+      <h5 class="text-muted m-n">${Equipment Hierarchy}</h5>
+      <ul class="breadcrumb" ng-if="data.hierarchy.length > 0">
+        <li ng-repeat="ci in data.hierarchy"><a href="javascript:void(0)" ng-click="c.selectConfigurationItem(ci)">{{::ci.display_value}}</a></li>
+      </ul>
+      <div ng-if="data.children.length > 0">
+        <h5 class="text-muted">${Children}</h5>
+        <ndl-panel class="x-pisn-manops-equipment-hierarchy__children">
+          <ndl-list-group>
+            <ndl-list-group-item ng-repeat="child in data.children | orderBy:'display_value'" ng-click="c.selectConfigurationItem(child)">{{::child.display_value}}</ndl-list-group-item>
+          </ndl-list-group>
+        </ndl-panel>  
+      </div>
+    </ndl-panel-body>
+  </ndl-panel>
+</div>]]></template>
+    </sp_widget>
+</record_update>

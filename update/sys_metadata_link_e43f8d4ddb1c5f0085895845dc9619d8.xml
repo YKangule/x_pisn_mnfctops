@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>update</directory>
+        <documentkey>7e6f6d4fdbcb83005c025a6adc96190e</documentkey>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="x_pisn_mnfctops_manufacturing_tag">
+    <x_pisn_mnfctops_manufacturing_tag action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <activity_due/>
+        <additional_assignee_list/>
+        <approval>not requested</approval>
+        <approval_history/>
+        <approval_set/>
+        <assigned_to/>
+        <assignment_group/>
+        <business_duration/>
+        <business_service display_value="PS-AR-Packaging (ROB)">4e6e2bb4dbbacb0085895845dc96195f</business_service>
+        <calendar_duration/>
+        <caller_id display_value="Abraham Lincoln">a8f98bb0eb32010045e1a5115206fe3a</caller_id>
+        <close_notes/>
+        <closed_at/>
+        <closed_by/>
+        <cmdb_ci display_value="HJB2-458-675">fe770d3adb377e00ca7ff72eaf961902</cmdb_ci>
+        <comments/>
+        <comments_and_work_notes/>
+        <company/>
+        <contact_type/>
+        <correlation_display/>
+        <correlation_id/>
+        <delivery_plan/>
+        <delivery_task/>
+        <description/>
+        <due_date/>
+        <escalation>0</escalation>
+        <expected_start/>
+        <failure display_value="">250cf41edb7647005c025a6adc961976</failure>
+        <follow_up/>
+        <group_list/>
+        <impact>3</impact>
+        <knowledge>false</knowledge>
+        <location/>
+        <made_sla>true</made_sla>
+        <number>CARD0001002</number>
+        <opened_at>2017-12-19 21:11:07</opened_at>
+        <opened_by display_value="">darrin.achtman@snc</opened_by>
+        <order/>
+        <parent/>
+        <priority>4</priority>
+        <reassignment_count>0</reassignment_count>
+        <rejection_goto/>
+        <short_description/>
+        <skills/>
+        <sla_due/>
+        <state>1</state>
+        <sys_class_name>x_pisn_mnfctops_manufacturing_tag</sys_class_name>
+        <sys_created_by>darrin.achtman@snc</sys_created_by>
+        <sys_created_on>2017-12-19 21:11:07</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>7e6f6d4fdbcb83005c025a6adc96190e</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+        <sys_updated_on>2018-02-13 16:53:09</sys_updated_on>
+        <time_worked/>
+        <u_choice_1/>
+        <u_functional_failure>Hello World</u_functional_failure>
+        <u_reference_1 display_value="HJB2-AR-Distribution&amp;Logistics">e86d75c3db93b20064615665dc961969</u_reference_1>
+        <upon_approval>proceed</upon_approval>
+        <upon_reject>cancel</upon_reject>
+        <urgency>3</urgency>
+        <user_input/>
+        <variables/>
+        <watch_list/>
+        <wf_activity/>
+        <work_end/>
+        <work_notes/>
+        <work_notes_list/>
+        <work_start/>
+    </x_pisn_mnfctops_manufacturing_tag>
+</record_update>
+]]></payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>joe.wilmoth@snc</sys_created_by>
+        <sys_created_on>2018-02-13 17:00:38</sys_created_on>
+        <sys_id>e43f8d4ddb1c5f0085895845dc9619d8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>CARD0001002</sys_name>
+        <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+        <sys_update_name>sys_metadata_link_e43f8d4ddb1c5f0085895845dc9619d8</sys_update_name>
+        <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+        <sys_updated_on>2018-02-13 17:00:38</sys_updated_on>
+        <tablename>x_pisn_mnfctops_manufacturing_tag</tablename>
+    </sys_metadata_link>
+</record_update>

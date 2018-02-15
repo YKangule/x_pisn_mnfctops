@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_pisn_mnfctops_failure_code">
+    <x_pisn_mnfctops_failure_code action="INSERT_OR_UPDATE">
+        <id>AB12</id>
+        <label>Lack of safety device</label>
+        <parent display_value="Abnormalities">ad0cf41edb7647005c025a6adc96196f</parent>
+        <sys_class_name>x_pisn_mnfctops_failure_code</sys_class_name>
+        <sys_created_by>joe.wilmoth@snc</sys_created_by>
+        <sys_created_on>2017-12-04 23:15:06</sys_created_on>
+        <sys_id>7d0cf41edb7647005c025a6adc9619a0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Lack of safety device</sys_name>
+        <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+        <sys_update_name>x_pisn_mnfctops_failure_code_7d0cf41edb7647005c025a6adc9619a0</sys_update_name>
+        <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+        <sys_updated_on>2017-12-04 23:15:06</sys_updated_on>
+    </x_pisn_mnfctops_failure_code>
+</record_update>

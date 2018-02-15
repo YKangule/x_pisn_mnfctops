@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>update</directory>
+        <documentkey>28920152dbb647005c025a6adc96198b</documentkey>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="b56e2bb4dbbacb0085895845dc961915" table="x_pisn_mnfctops_manufacturing_tag">
+    <x_pisn_mnfctops_manufacturing_tag action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <activity_due/>
+        <additional_assignee_list/>
+        <approval>not requested</approval>
+        <approval_history/>
+        <approval_set/>
+        <assigned_to/>
+        <assignment_group/>
+        <business_duration>1970-01-01 00:00:00</business_duration>
+        <business_service display_value="PS-AR-Packaging (ROB)">4e6e2bb4dbbacb0085895845dc96195f</business_service>
+        <calendar_duration>1970-01-01 00:00:00</calendar_duration>
+        <caller_id display_value="Fabio Petito">a26e2bb4dbbacb0085895845dc9619cc</caller_id>
+        <close_notes/>
+        <closed_at/>
+        <closed_by/>
+        <cmdb_ci display_value="HJB2-577-226">72770d3adb377e00ca7ff72eaf961902</cmdb_ci>
+        <comments/>
+        <comments_and_work_notes/>
+        <company/>
+        <contact_type/>
+        <correlation_display/>
+        <correlation_id/>
+        <delivery_plan/>
+        <delivery_task/>
+        <description/>
+        <due_date/>
+        <escalation>0</escalation>
+        <expected_start/>
+        <failure/>
+        <follow_up/>
+        <group_list/>
+        <impact>3</impact>
+        <knowledge>false</knowledge>
+        <location/>
+        <made_sla>true</made_sla>
+        <number>CARD0001146</number>
+        <opened_at>2017-08-09 16:22:12</opened_at>
+        <opened_by display_value="">joe.wilmoth@snc</opened_by>
+        <order/>
+        <parent/>
+        <priority>4</priority>
+        <reassignment_count>0</reassignment_count>
+        <rejection_goto/>
+        <short_description/>
+        <skills/>
+        <sla_due/>
+        <state>9</state>
+        <sys_class_name>x_pisn_mnfctops_manufacturing_tag</sys_class_name>
+        <sys_created_by>joe.wilmoth@snc</sys_created_by>
+        <sys_created_on>2017-12-04 23:43:42</sys_created_on>
+        <sys_domain>b56e2bb4dbbacb0085895845dc961915</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>28920152dbb647005c025a6adc96198b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+        <sys_updated_on>2018-02-13 16:56:19</sys_updated_on>
+        <time_worked>1970-01-01 00:00:00</time_worked>
+        <u_choice_1/>
+        <u_functional_failure>No pressure at glue injector</u_functional_failure>
+        <u_reference_1 display_value="HJB2-AR-Packaging">823db1c3db93b20064615665dc96196f</u_reference_1>
+        <upon_approval>proceed</upon_approval>
+        <upon_reject>cancel</upon_reject>
+        <urgency>3</urgency>
+        <user_input/>
+        <variables/>
+        <watch_list/>
+        <wf_activity/>
+        <work_end/>
+        <work_notes/>
+        <work_notes_list/>
+        <work_start/>
+    </x_pisn_mnfctops_manufacturing_tag>
+</record_update>
+]]></payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>joe.wilmoth@snc</sys_created_by>
+        <sys_created_on>2018-02-13 17:00:52</sys_created_on>
+        <sys_id>3f3f858ddb1c5f0085895845dc961952</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>CARD0001146</sys_name>
+        <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
+        <sys_update_name>sys_metadata_link_3f3f858ddb1c5f0085895845dc961952</sys_update_name>
+        <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
+        <sys_updated_on>2018-02-13 17:00:52</sys_updated_on>
+        <tablename>x_pisn_mnfctops_manufacturing_tag</tablename>
+    </sys_metadata_link>
+</record_update>
