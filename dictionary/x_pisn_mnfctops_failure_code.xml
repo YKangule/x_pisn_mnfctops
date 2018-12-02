@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
+<?xml version="1.0" encoding="UTF-8"?><database>
     <element attributes="update_synch=true" extends="sys_metadata" label="Failure Code" max_length="40" name="x_pisn_mnfctops_failure_code" type="collection">
         <element label="ID" max_length="80" name="id" type="string"/>
         <element display="true" label="Label" max_length="255" name="label" type="translated_text"/>

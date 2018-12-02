@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="m2m_sp_widget_dependency">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_widget_dependency">
     <m2m_sp_widget_dependency action="INSERT_OR_UPDATE">
         <sp_dependency display_value="QuaggaJS">18ded16adbbe47005c025a6adc96190d</sp_dependency>
         <sp_widget display_value="Barcode Reader Modal">fcced40ddbfe83005c025a6adc96198a</sp_widget>

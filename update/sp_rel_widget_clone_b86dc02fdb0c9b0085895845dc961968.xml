@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sp_rel_widget_clone">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone">
     <sp_rel_widget_clone action="INSERT_OR_UPDATE">
         <child display_value="Manufacturing - SC Catalog Item">b86d4cebdb0c9b0085895845dc961922</child>
         <cloned>2018-02-08 20:22:14</cloned>

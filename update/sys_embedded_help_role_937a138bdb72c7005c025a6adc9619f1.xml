@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sys_embedded_help_role">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_embedded_help_role">
     <sys_embedded_help_role action="INSERT_OR_UPDATE">
         <order>1000</order>
-        <role display_value="x_snc_amazon_echo_utterance_user" name="x_snc_amazon_echo_utterance_user">57e70cbd13fe9200d0143d622244b024</role>
+        <role display_value="">57e70cbd13fe9200d0143d622244b024</role>
         <sys_class_name>sys_embedded_help_role</sys_class_name>
         <sys_created_by>system</sys_created_by>
         <sys_created_on>2017-12-07 18:42:53</sys_created_on>

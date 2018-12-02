@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="ua_table_licensing_config">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="ua_table_licensing_config">
     <ua_table_licensing_config action="INSERT_OR_UPDATE">
         <is_fulfillment>false</is_fulfillment>
         <license_condition/>
@@ -13,13 +12,13 @@
         <sys_class_name>ua_table_licensing_config</sys_class_name>
         <sys_created_by>joe.wilmoth@snc</sys_created_by>
         <sys_created_on>2017-12-04 23:47:03</sys_created_on>
-        <sys_id>fd538552dbb647005c025a6adc9619f7</sys_id>
+        <sys_id>097d0af2db0e2300cfd19ca4db961940</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>x_pisn_mnfctops_manufacturing_issue_impact_type</sys_name>
         <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
         <sys_policy/>
         <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
-        <sys_update_name>ua_table_licensing_config_fd538552dbb647005c025a6adc9619f7</sys_update_name>
+        <sys_update_name>ua_table_licensing_config_097d0af2db0e2300cfd19ca4db961940</sys_update_name>
         <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
         <sys_updated_on>2017-12-04 23:47:03</sys_updated_on>
     </ua_table_licensing_config>

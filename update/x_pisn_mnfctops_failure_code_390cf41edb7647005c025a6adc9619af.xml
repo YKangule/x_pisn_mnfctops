@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="x_pisn_mnfctops_failure_code">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_pisn_mnfctops_failure_code">
     <x_pisn_mnfctops_failure_code action="INSERT_OR_UPDATE">
         <id>AC05</id>
         <label>Difficult to access / lubricate / clean / inspect</label>

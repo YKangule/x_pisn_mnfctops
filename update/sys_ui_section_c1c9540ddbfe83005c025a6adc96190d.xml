@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_ui_section caption="" section_id="c1c9540ddbfe83005c025a6adc96190d" sys_domain="global" table="x_pisn_mnfctops_manufacturing_tag" version="3" view="">
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>number</element>

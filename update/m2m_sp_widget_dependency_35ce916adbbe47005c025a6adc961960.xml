@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="m2m_sp_widget_dependency">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_widget_dependency">
     <m2m_sp_widget_dependency action="INSERT_OR_UPDATE">
-        <sp_dependency display_value="ndlCore">81627d86db5b7200f3bbd9f0ce9619dc</sp_dependency>
+        <sp_dependency display_value="">81627d86db5b7200f3bbd9f0ce9619dc</sp_dependency>
         <sp_widget display_value="Barcode Reader Modal">fcced40ddbfe83005c025a6adc96198a</sp_widget>
         <sys_class_name>m2m_sp_widget_dependency</sys_class_name>
         <sys_created_by>arthur.oliveira</sys_created_by>

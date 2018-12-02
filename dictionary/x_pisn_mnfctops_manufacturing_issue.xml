@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
-    <element extends="task" label="Manufacturing Issue" max_length="40" name="x_pisn_mnfctops_manufacturing_issue" sizeclass="63" type="collection">
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="task" label="Manufacturing Issue" max_length="40" name="x_pisn_mnfctops_manufacturing_issue" type="collection">
         <element label="Practitioner" max_length="32" name="caller_id" reference="sys_user" type="reference"/>
-        <element attributes="no_sort=true,slushbucket_ref_no_expand=true" label="Skills" max_length="1024" name="skills" type="glide_list"/>
         <element attributes="edge_encryption_enabled=true" choice="1" label="Maintenance Support Needed?" max_length="40" name="u_choice_1" type="string">
             <choice>
-                <element label="Yes" sequence="0" value="yes"/>
-                <element label="No" sequence="1" value="no"/>
+                <element inactive_on_update="false" label="Yes" sequence="0" value="yes"/>
+                <element inactive_on_update="false" label="No" sequence="1" value="no"/>
             </choice>
         </element>
         <element attributes="edge_encryption_enabled=true" label="Functional Failure" max_length="40" name="u_functional_failure" type="string"/>

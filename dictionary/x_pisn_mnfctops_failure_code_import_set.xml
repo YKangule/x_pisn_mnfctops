@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
+<?xml version="1.0" encoding="UTF-8"?><database>
     <element extends="sys_import_set_row" label="Failure Codes Data Source" max_length="40" name="x_pisn_mnfctops_failure_code_import_set" type="collection">
         <element attributes="import_attribute_name=Application,edge_encryption_enabled=true" label="Application" max_length="40" name="u_application" type="string"/>
         <element attributes="import_attribute_name=Class,edge_encryption_enabled=true" label="Class" max_length="40" name="u_class" type="string"/>

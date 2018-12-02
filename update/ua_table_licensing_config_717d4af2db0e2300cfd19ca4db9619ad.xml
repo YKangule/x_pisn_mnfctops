@@ -1,26 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="ua_table_licensing_config">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="ua_table_licensing_config">
     <ua_table_licensing_config action="INSERT_OR_UPDATE">
         <is_fulfillment>false</is_fulfillment>
         <license_condition/>
         <license_model>none</license_model>
         <license_roles/>
-        <name>x_pisn_mnfctops_manufacturing_issue_technology_type</name>
+        <name>x_pisn_mnfctops_tag_import_set</name>
         <op_delete>true</op_delete>
         <op_insert>true</op_insert>
         <op_update>true</op_update>
         <owner_condition/>
         <sys_class_name>ua_table_licensing_config</sys_class_name>
         <sys_created_by>joe.wilmoth@snc</sys_created_by>
-        <sys_created_on>2017-12-04 23:55:01</sys_created_on>
-        <sys_id>2e258592dbb647005c025a6adc961939</sys_id>
+        <sys_created_on>2017-11-30 23:25:23</sys_created_on>
+        <sys_id>717d4af2db0e2300cfd19ca4db9619ad</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>x_pisn_mnfctops_manufacturing_issue_technology_type</sys_name>
+        <sys_name>x_pisn_mnfctops_tag_import_set</sys_name>
         <sys_package display_value="Manufacturing Operations" source="x_pisn_mnfctops">e190472fdba24b0085895845dc961933</sys_package>
         <sys_policy/>
         <sys_scope display_value="Manufacturing Operations">e190472fdba24b0085895845dc961933</sys_scope>
-        <sys_update_name>ua_table_licensing_config_2e258592dbb647005c025a6adc961939</sys_update_name>
+        <sys_update_name>ua_table_licensing_config_717d4af2db0e2300cfd19ca4db9619ad</sys_update_name>
         <sys_updated_by>joe.wilmoth@snc</sys_updated_by>
-        <sys_updated_on>2017-12-04 23:55:01</sys_updated_on>
+        <sys_updated_on>2017-11-30 23:25:23</sys_updated_on>
     </ua_table_licensing_config>
 </record_update>

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sys_db_object">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_object">
     <sys_db_object action="INSERT_OR_UPDATE">
         <access>public</access>
         <actions_access>true</actions_access>
         <alter_access>true</alter_access>
+        <caller_access/>
         <client_scripts_access>true</client_scripts_access>
         <configuration_access>false</configuration_access>
         <create_access>true</create_access>
@@ -17,7 +17,7 @@
         <number_ref/>
         <provider_class/>
         <read_access>true</read_access>
-        <super_class display_value="Application File" name="sys_metadata">e8a22032db1203005c025a6adc96195f</super_class>
+        <super_class display_value="Application File" name="sys_metadata">8a12332181131300aadba4a47c598e5e</super_class>
         <sys_class_code/>
         <sys_class_name>sys_db_object</sys_class_name>
         <sys_class_path/>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update>
     <sys_documentation element="" label="Manufacturing Issue Impact Type" language="en" table="x_pisn_mnfctops_manufacturing_issue_impact_type">
         <sys_documentation action="INSERT_OR_UPDATE">
             <element/>

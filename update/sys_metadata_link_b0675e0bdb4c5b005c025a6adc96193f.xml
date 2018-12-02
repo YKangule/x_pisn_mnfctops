@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sys_metadata_link">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_metadata_link">
     <sys_metadata_link action="INSERT_OR_UPDATE">
         <directory>update</directory>
         <documentkey>7e6f6d4fdbcb83005c025a6adc96190e</documentkey>

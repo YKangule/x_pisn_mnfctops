@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
-    <element extends="x_pisn_mnfctops_manufacturing_issue" label="Breakdown" max_length="40" name="x_pisn_mnfctops_breakdown" sizeclass="14" type="collection"/>
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="x_pisn_mnfctops_manufacturing_issue" label="Breakdown" max_length="40" name="x_pisn_mnfctops_breakdown" type="collection"/>
 </database>

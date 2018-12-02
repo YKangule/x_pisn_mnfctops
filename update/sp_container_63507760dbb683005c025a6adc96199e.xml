@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sp_container">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
     <sp_container action="INSERT_OR_UPDATE">
         <background_color/>
         <background_image>0abea826dbcc1b0085895845dc9619f5.iix?t=m</background_image>
@@ -31,11 +30,13 @@
         <chunk_size_bytes>734003</chunk_size_bytes>
         <compressed>true</compressed>
         <content_type>image/jpeg</content_type>
+        <encryption_context/>
         <file_name>background_image</file_name>
         <image_height>235</image_height>
         <image_width>1200</image_width>
         <size_bytes>50860</size_bytes>
         <size_compressed>50315</size_compressed>
+        <state/>
         <sys_created_by>darrin.achtman@snc</sys_created_by>
         <sys_created_on>2018-02-05 20:13:56</sys_created_on>
         <sys_id>0abea826dbcc1b0085895845dc9619f5</sys_id>

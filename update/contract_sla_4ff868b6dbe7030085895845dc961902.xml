@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update sys_domain="global" table="contract_sla">
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="contract_sla">
     <contract_sla action="INSERT_OR_UPDATE">
         <active>true</active>
         <cancel_condition/>
@@ -49,6 +48,7 @@
         <timezone/>
         <timezone_source>task.caller_id.time_zone</timezone_source>
         <type>SLA</type>
+        <vendor/>
         <when_to_cancel>never</when_to_cancel>
         <when_to_resume>on_condition</when_to_resume>
         <workflow display_value="Default SLA workflow">4b6570360a0a0b3000bbacab877713f2</workflow>

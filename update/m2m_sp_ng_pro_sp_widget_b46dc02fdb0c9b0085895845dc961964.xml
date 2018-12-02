@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="m2m_sp_ng_pro_sp_widget">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_ng_pro_sp_widget">
     <m2m_sp_ng_pro_sp_widget action="INSERT_OR_UPDATE">
         <sp_angular_provider display_value="scToggleData">c045f99a0b67320014ea425663673a25</sp_angular_provider>
         <sp_widget display_value="Manufacturing - SC Catalog Item">b86d4cebdb0c9b0085895845dc961922</sp_widget>
